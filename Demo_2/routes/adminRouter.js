@@ -68,5 +68,12 @@ router.post("/courses", adminMiddleware, async function(req, res){
     })
 })
 
+// Admin routes - creating courses get request
+router.get("/courses", adminMiddleware,async function(req, res){
+   const courses =await Course.find({});
+    res.status(200).json({
+        Courses: courses
+    })
+})
 
 module.exports = router;
