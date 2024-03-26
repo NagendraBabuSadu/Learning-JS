@@ -87,4 +87,28 @@ router.post("/courses/:courseId", userMiddlware, async function (req, res) {
     }
 })
 
+
+router.get("/courses/purchasedCourses",userMiddlware, async function(req, res){
+    
+    console.log("hi there");
+    const authToken = req.headers.authorization;
+    if(authToken){
+        const findUser = await User.findOne({
+            username: req.username
+        });
+        const coursesList = await Course.find({
+            _id : {
+                "$in" : findUser.purchasedCourses
+            }
+        })
+        res.status(200).json({
+            Courses: coursesList
+            
+        })
+
+    }
+
+})
+
+
 module.exports = router;
