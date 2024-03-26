@@ -5,8 +5,8 @@ const jwt = require("jsonwebtoken");
 function adminMiddleware(req, res, next) {
     
         const token = req.headers.authorization;
-        console.log(req.headers);
-        console.log(token)
+        // console.log(req.headers);
+        // console.log(token)
         const words = token.split(' ');
         const jwtToken = words[1];
         const decodedValue = jwt.verify(jwtToken, JWT_SECRET)
