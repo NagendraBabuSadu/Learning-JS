@@ -5,11 +5,11 @@ app.use(bodyParser.json());
 
 // Defining routers
 const adminRouter = require("../Demo_2/routes/adminRouter")
+const userRouter = require("../Demo_2/routes/userRouter")
 
 // Defining middlewares
-
 app.use("/admin", adminRouter)
-// app.use("/users", userRouter)
+app.use("/users", userRouter)
 
 
 const PORT = 3000;
