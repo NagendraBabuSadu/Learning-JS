@@ -26,13 +26,10 @@ router.post("/signup", (req, res) => {
 
 // User Routes - creating courses get request
 router.get("/courses", async (req, res) => {
-
-
     const coursesList = await Course.find({})
     res.status(200).json({
         Courses: coursesList
     })
-
 })
 
 // User Routes - creating courseId post request
